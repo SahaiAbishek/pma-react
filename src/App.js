@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/common/Header';
+import ProjectPage from './components/project/ProjectPage';
+import AddTaskPage from './components/task/AddTask';
+import ViewTask from './components/task/ViewTask';
+import userPage from './components/user/User';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <h1> Project Management App </h1>
+      <Header/>
+      <Route exact path="/" component={userPage} />
+      <Route path="/AddProject" component={ProjectPage} />
+      <Route path="/AddTask" component={AddTaskPage} />
+      <Route path="/AddUser" component={userPage} />
+      <Route path="/ViewTask" component={ViewTask} />
     </div>
   );
 }
